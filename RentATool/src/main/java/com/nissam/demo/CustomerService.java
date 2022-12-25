@@ -11,25 +11,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CustomerService {
-	
+
 	@Autowired
 	Jpacustomerrepo jpacustomerrepo;
 	@Autowired
 	Jpatoolrepo jpatoolrepo;
-	
+
 	@RequestMapping("customers")
-	public ArrayList<Customer> getCustomers()
-	{
-		//System.out.println("in add cus");
-		ArrayList<Customer> customers = (ArrayList<Customer>)jpacustomerrepo.findAll();
-		return  customers;
+	public ArrayList<Customer> getCustomers() {
+		// System.out.println("in add cus");
+		ArrayList<Customer> customers = (ArrayList<Customer>) jpacustomerrepo.findAll();
+		return customers;
 	}
-	@PostMapping("addcustomer")	
-	public void addcustomer(Customer c)
-	{
+
+	@PostMapping("addcustomer")
+	public void addcustomer(Customer c) {
 		jpacustomerrepo.save(c);
 	}
-	
-	
 
 }
